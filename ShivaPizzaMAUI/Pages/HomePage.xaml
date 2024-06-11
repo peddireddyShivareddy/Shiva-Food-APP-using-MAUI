@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ShivaPizzaMAUI.Views"
+             xmlns:models="clr-namespace:ShivaPizzaMAUI.Models"
+             x:Class="ShivaPizzaMAUI.Pages.HomePage"
+             Title="Food World"
+             Padding="15"
+             x:DataType="vm:HomeView">
+    <ScrollView>
+        <VerticalStackLayout Spacing="10">
+            <Border StrokeShape="RoundRectangle 10"
+                    StrokeThickness="0"
+                    BackgroundColor="MistyRose"
+                    VerticalOptions="Start"
+                    Padding="15">
+                <Grid ColumnDefinitions="*, 150"
+                      RowDefinitions="*, Auto">
+                    <VerticalStackLayout Grid.Row="0"
+                                         Grid.Column="0"
+                                         Spacing="10">
+                        <Label Text="Biryani Offer"
+                               FontSize="25"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"/>
+                        <Label Text="Grab this amazing Biryani offer before it expires"/>
+
+                    </VerticalStackLayout>
+                    <Button Grid.Row="1"
+                            Grid.Column="0"
+                            Text="Get it now"
+                            FontAttributes="Bold"
+                            CornerRadius="22"
+                            HorizontalOptions="Center"
+                            Padding="50, 0"/>
+                    <Image Grid.RowSpan="2"
+                        Grid.Column="1"
+                           Source="biryani.png"
+                           HeightRequest="150"
+                           WidthRequest="150"/>
+                </Grid>
+            </Border>
+            <Border StrokeShape="RoundRectangle 20"
+                    StrokeThickness="2"
+                    Stroke="MistyRose">
+                <Label Text="Search here..."
+                       TextColor="LightGray"
+                       FontSize="15"
+                       Padding="10, 14"/>
+            </Border>
+            <BoxView HeightRequest="15"
+                     Color="White"/>
+
+            <Grid ColumnDefinitions="*, *">
+                <Label Grid.Column="0"
+                       Text="Popular items"
+                       VerticalOptions="End"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+                <Label Grid.Column="1"
+                       Text="View all"
+                       HorizontalOptions="End"
+                       VerticalOptions="End"
+                       TextDecorations="Underline"/>
+            </Grid>
+            <FlexLayout BindableLayout.ItemsSource="{Binding Items}"
+                        Wrap="Wrap">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="models:Items">
+                        <Border FlexLayout.Basis="50%"
+                            StrokeShape="RoundRectangle 10"
+                                StrokeThickness="0"
+                                BackgroundColor="MistyRose"
+                                Padding="10"
+                                Margin="2">
+                            <Grid RowDefinitions="150, Auto, Auto, Auto"
+                                  RowSpacing="5">
+                                <Image Grid.Row="0"
+                                       Source="{Binding Image}"
+                                       HeightRequest="150"
+                                       WidthRequest="130"/>
+                                <Label Grid.Row="1"
+                                       Text="{Binding Name}"
+                                       HorizontalOptions="Center"
+                                       FontSize="20"/>
+                                <Grid Grid.Row="2"
+                                    ColumnDefinitions="*, *">
+                                    <Label Grid.Column="0"
+                                           Text="{Binding Price, StringFormat='${0:N2}'}"
+                                           VerticalOptions="Center"
+                                           FontAttributes="Bold"/>
+                                    <HorizontalStackLayout Grid.Column="1"
+                                                           HorizontalOptions="End"
+                                                           Spacing="2"
+                                                           VerticalOptions="Center">
+                                        <Label Text="4"/>
+                                        <Image Source="star.png"
+                                               HeightRequest="15"
+                                               WidthRequest="15"/>
+                                    </HorizontalStackLayout>
+
+                                </Grid>
+                                <Button Grid.Row="3"
+                                        Text="View more"
+                                        CornerRadius="22"
+                                        FontAttributes="Bold"
+                                        VerticalOptions="End"
+                                        HorizontalOptions="Center"
+                                        Padding="25, 0"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+
+            </FlexLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+        
+</ContentPage>

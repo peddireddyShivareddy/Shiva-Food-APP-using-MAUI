@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ShivaPizzaMAUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Pages="clr-namespace:ShivaPizzaMAUI.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Title="ShivaPizzaMAUI"
+    Shell.BackgroundColor="MistyRose">
+
+    <ShellContent
+        Title=""
+        ContentTemplate="{DataTemplate Pages:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+    Title="home"
+    ContentTemplate="{DataTemplate Pages:HomePage}"
+    Route="HomePage" />
+
+</Shell>
